@@ -6,6 +6,9 @@ export abstract class CommonItem extends CustomItem {
     quality: {
       min: 0,
       max: 50
+    },
+    sellIn: {
+      limit: 0
     }
   };
 
@@ -20,6 +23,10 @@ export abstract class CommonItem extends CustomItem {
 
   abstract updateSellIn(): void
   abstract updateQuality(): void
+
+  protected hasReachSellInLimit(): boolean {
+    return this.item.sellIn < this.rules.sellIn.limit;
+  }
 
   protected hasReachMinQuality(): boolean {
     return this.item.quality < this.rules.quality.min;
