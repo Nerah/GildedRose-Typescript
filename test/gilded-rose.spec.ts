@@ -9,4 +9,10 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.equal(80);
     });
 
+    it('Dexterity vest quality should decrement by 1 if sell by date hasn\'t passed', function() {
+        const gildedRose = new GildedRose([ new Item("+5 Dexterity Vest", 10, 20) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.equal(19);
+    });
+
 });
