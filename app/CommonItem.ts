@@ -1,7 +1,7 @@
 import {CustomItem} from "./CustomItem";
 import {Item} from "./gilded-rose";
 
-export abstract class OrdinaryItem extends CustomItem {
+export abstract class CommonItem extends CustomItem {
   protected readonly rules = {
     quality: {
       min: 0,
