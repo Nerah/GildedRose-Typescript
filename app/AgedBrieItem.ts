@@ -1,7 +1,7 @@
 import {CommonItem} from "./CommonItem";
 import {Item} from "./gilded-rose";
 
-export class OrdinaryItem extends CommonItem {
+export class AgedBrieItem extends CommonItem {
 
   constructor(item: Item) {
     super(item);
@@ -12,9 +12,9 @@ export class OrdinaryItem extends CommonItem {
       this.item.quality = this.rules.quality.min
     } else {
       if (this.hasReachSellInLimit()) {
-        this.item.quality -= 2
+        this.item.quality += 2
       } else {
-        this.item.quality -= 1
+        this.item.quality += 1
       }
     }
   }

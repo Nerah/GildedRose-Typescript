@@ -21,7 +21,10 @@ export abstract class CommonItem extends CustomItem {
     this.updateQuality();
   }
 
-  abstract updateSellIn(): void
+  updateSellIn(): void {
+    this.item.sellIn -= 1
+  }
+
   abstract updateQuality(): void
 
   protected hasReachSellInLimit(): boolean {
