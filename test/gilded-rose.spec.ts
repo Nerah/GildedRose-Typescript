@@ -100,4 +100,25 @@ describe('Gilded Rose', function () {
         }
     });
 
+    it('Item quality should never be > 50', function() {
+        const gildedRose = new GildedRose([
+            new Item("+5 Dexterity Vest", 10, 20),
+            new Item("Aged Brie", 2, 0),
+            new Item("Elixir of the Mongoose", 5, 7),
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+            new Item("Sulfuras, Hand of Ragnaros", -1, 80),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+            new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)
+        ]);
+        let items;
+        // 100 days have passed
+        for (let i = 0; i < 100; i++)
+            items = gildedRose.updateQuality();
+        // each item quality should not be negative
+        for (let item of items) {
+            expect(items[0].quality <= 50).to.be.true;
+        }
+    });
+
 });
