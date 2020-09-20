@@ -37,4 +37,18 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.equal(8);
     });
 
+    it('Aged Brie quality should increment by 1 if sell by date hasn\'t passed', function() {
+        const gildedRose = new GildedRose([ new Item("Aged Brie", 10, 20) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].sellIn).to.equal(9);
+        expect(items[0].quality).to.equal(21);
+    });
+
+    it('Aged Brie quality should increment by 2 if sell by date has passed', function() {
+        const gildedRose = new GildedRose([ new Item("Aged Brie", 0, 30) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].sellIn).to.equal(-1);
+        expect(items[0].quality).to.equal(32);
+    });
+
 });
