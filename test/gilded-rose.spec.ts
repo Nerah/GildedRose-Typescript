@@ -51,4 +51,32 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.equal(32);
     });
 
+    it('Backstage passes to a TAFKAL80ETC concert quality should increment by 1 if sell by date is > 10', function() {
+        const gildedRose = new GildedRose([ new Item("Backstage passes to a TAFKAL80ETC concert", 15, 25) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].sellIn).to.equal(14);
+        expect(items[0].quality).to.equal(26);
+    });
+
+    it('Backstage passes to a TAFKAL80ETC concert quality should increment by 2 if sell by date is <= 10 and > 5', function() {
+        const gildedRose = new GildedRose([ new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].sellIn).to.equal(9);
+        expect(items[0].quality).to.equal(32);
+    });
+
+    it('Backstage passes to a TAFKAL80ETC concert quality should increment by 3 if sell by date is <= 5 and >= 0', function() {
+        const gildedRose = new GildedRose([ new Item("Backstage passes to a TAFKAL80ETC concert", 5, 40) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].sellIn).to.equal(4);
+        expect(items[0].quality).to.equal(43);
+    });
+
+    it('Backstage passes to a TAFKAL80ETC concert quality should be 0 if sell by date has passed', function() {
+        const gildedRose = new GildedRose([ new Item("Backstage passes to a TAFKAL80ETC concert", 0, 55) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].sellIn).to.equal(-1);
+        expect(items[0].quality).to.equal(0);
+    });
+
 });
