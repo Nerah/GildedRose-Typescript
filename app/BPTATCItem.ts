@@ -25,9 +25,6 @@ export class BPTATCItem extends CommonItem {
         }
       }
     }
-    if (this.hasReachMaxQuality()) {
-      this.item.quality = this.rules.quality.max
-    }
   }
 
   private concertIsClose() {

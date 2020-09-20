@@ -8,14 +8,10 @@ export class OrdinaryItem extends CommonItem {
   }
 
   updateQuality(): void {
-    if (this.hasReachMinQuality()) {
-      this.item.quality = this.rules.quality.min
+    if (this.hasReachSellInLimit()) {
+      this.item.quality -= 2
     } else {
-      if (this.hasReachSellInLimit()) {
-        this.item.quality -= 2
-      } else {
-        this.item.quality -= 1
-      }
+      this.item.quality -= 1
     }
   }
 

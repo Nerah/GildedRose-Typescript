@@ -18,14 +18,29 @@ export abstract class CommonItem extends CustomItem {
 
   update(): void {
     this.updateSellIn();
-    this.updateQuality();
+    this.superUpdateQuality();
   }
 
   updateSellIn(): void {
     this.item.sellIn -= 1
   }
 
+  private superUpdateQuality(): void {
+    this.updateQuality();
+    this.correctQualityOverflowing();
+  }
+
   abstract updateQuality(): void
+
+  private correctQualityOverflowing() {
+    if (this.hasReachMinQuality()) {
+      this.item.quality = this.rules.quality.min
+    } else {
+      if (this.hasReachMaxQuality()) {
+        this.item.quality = this.rules.quality.max
+      }
+    }
+  }
 
   protected hasReachSellInLimit(): boolean {
     return this.item.sellIn < this.rules.sellIn.limit;

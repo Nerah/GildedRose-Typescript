@@ -8,14 +8,10 @@ export class AgedBrieItem extends CommonItem {
   }
 
   updateQuality(): void {
-    if (this.hasReachMaxQuality()) {
-      this.item.quality = this.rules.quality.max
+    if (this.hasReachSellInLimit()) {
+      this.item.quality += 2
     } else {
-      if (this.hasReachSellInLimit()) {
-        this.item.quality += 2
-      } else {
-        this.item.quality += 1
-      }
+      this.item.quality += 1
     }
   }
 
