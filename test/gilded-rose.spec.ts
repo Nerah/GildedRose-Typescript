@@ -117,7 +117,7 @@ describe('Gilded Rose', function () {
         // 100 days have passed
         for (let i = 0; i < 100; i++)
             items = gildedRose.updateQuality();
-        // each item quality should not be negative
+        // each item quality should not be > 50
         for (let item of items) {
             expect(items[0].quality <= 50).to.be.true;
         }
