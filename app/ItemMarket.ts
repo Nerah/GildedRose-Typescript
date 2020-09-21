@@ -2,14 +2,16 @@ import {CustomItem} from "./CustomItem";
 import {Item} from "./gilded-rose";
 import {ItemFactory} from "./ItemFactory";
 
-type ItemRelation = [ string, CustomItem ];
-
 export class ItemMarket {
-  private store: Array<ItemRelation>;
+  private store: Array<CustomItem> = [];
 
   constructor(items: Array<Item>) {
     items.forEach(item => {
-      this.store.push([ item.name, ItemFactory.getInstance(item) ])
+      this.store.push(ItemFactory.getInstance(item))
     });
+  }
+
+  update() {
+    this.store.forEach(item => item.update());
   }
 }
