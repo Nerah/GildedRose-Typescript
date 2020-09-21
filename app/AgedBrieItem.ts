@@ -1,5 +1,5 @@
 import {CommonItem} from "./CommonItem";
-import {Item} from "./gilded-rose";
+import {Item} from "./Item";
 
 export class AgedBrieItem extends CommonItem {
 

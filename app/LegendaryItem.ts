@@ -1,5 +1,5 @@
 import {CustomItem} from "./CustomItem";
-import {Item} from "./gilded-rose";
+import {Item} from "./Item";
 
 export class LegendaryItem extends CustomItem {
 

@@ -3,7 +3,7 @@ import {LegendaryItem} from "./LegendaryItem";
 import {AgedBrieItem} from "./AgedBrieItem";
 import {BPTATCItem} from "./BPTATCItem";
 import {CustomItem} from "./CustomItem";
-import {Item} from "./gilded-rose";
+import {Item} from "./Item";
 
 type ItemMapping = typeof LegendaryItem |
     typeof OrdinaryItem |

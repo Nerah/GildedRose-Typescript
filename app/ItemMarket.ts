@@ -1,5 +1,5 @@
 import {CustomItem} from "./CustomItem";
-import {Item} from "./gilded-rose";
+import {Item} from "./Item";
 import {ItemFactory} from "./ItemFactory";
 
 export class ItemMarket {

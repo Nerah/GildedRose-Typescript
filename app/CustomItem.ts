@@ -1,4 +1,4 @@
-import {Item} from "./gilded-rose";
+import {Item} from "./Item";
 
 export abstract class CustomItem {
   protected item: Item;
